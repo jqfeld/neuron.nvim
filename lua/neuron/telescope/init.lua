@@ -68,6 +68,11 @@ function M.find_backlinks(opts)
             neuron_actions.insert_maker("id"))
         return true
       end
+    else
+      picker_opts.attach_mappings = function()
+        actions.select_default:replace(neuron_actions.edit_or_insert)
+        return true
+      end
     end
 
     pickers.new(opts, picker_opts):find()

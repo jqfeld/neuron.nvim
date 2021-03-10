@@ -34,7 +34,7 @@ function M.set_keymaps()
 end
 
 function M.setup()
-  vim.cmd(string.format("au BufRead %s/*.md lua require'neuron/mappings'.set_keymaps()", config.neuron_dir))
+  vim.cmd(string.format("au BufRead %s/*.md lua require'neuron/mappings'.set_keymaps()", config.neuron_dir:gsub("\\","/")))
   M.map("i", "<cmd>lua require'neuron'.goto_index()<CR>")
 end
 

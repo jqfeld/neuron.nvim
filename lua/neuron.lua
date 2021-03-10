@@ -146,7 +146,8 @@ function M.attach_buffer_fast()
 end
 
 local function setup_autocmds()
-  local pathpattern = string.format("%s/*.md", config.neuron_dir)
+  local pathpattern = string.format("%s/*.md", config.neuron_dir):gsub("\\","/")
+  -- local pathpattern = string.format("%s/*.md", config.neuron_dir)
   vim.cmd [[augroup Neuron]]
   vim.cmd [[au!]]
   if config.gen_cache_on_write == true then
